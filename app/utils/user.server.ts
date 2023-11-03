@@ -10,9 +10,30 @@ export const createUser = async (user: RegisterForm) => {
       password: passwordHash,
       profile: {
         firstName: user.firstName,
-        lastName: user.lastName,
+        lastName: user.lastName
       },
     },
   })
   return { id: newUser.id, email: user.email }
+}
+
+export const getOtherUsers = async (userId: string) => {
+  return prisma.user.findMany({
+    where: {
+      id: { not: userId },
+    },
+    orderBy: {
+      profile: {
+        firstName: 'asc',
+      },
+    },
+  })
+}
+
+export const getUserById = async (userId: string) => {
+  return await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+  })
 }
