@@ -1,0 +1,11 @@
+{
+    "name": "kudos-site-remix",
+    "version": 2,
+    "builds": [
+      {
+        "src": "public/*",
+        "use": "@vercel/static"
+      }
+    ]
+  }
+  
