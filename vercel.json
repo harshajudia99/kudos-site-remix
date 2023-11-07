@@ -3,7 +3,7 @@
     "builds": [
       {
         "src": "public/**",
-        "use": "@vercel/static"
+        "destination": "https://kudos-site-remix-theta.vercel.app"
       }
     ]
 }
